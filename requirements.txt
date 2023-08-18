@@ -1,0 +1,23 @@
+app vue :
+    main body 
+    card box 
+        picture
+        header
+        category (men's or women's)
+        description
+        price
+        button buy
+        button next product
+Components:
+    main body -> backgrounds and backdrops
+    card box -> card display for product
+        picture -> product picture
+        header -> product name
+        category -> product category
+        description -> product description
+        price -> product price
+        button buy -> buy button
+        button next product -> next product
+    button -> button customization
+
+
