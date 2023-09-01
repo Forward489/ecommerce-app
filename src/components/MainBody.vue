@@ -1,16 +1,22 @@
 <template>
     <div class="wrapper">
-        <div class="main-bg" :style="bgColor">
+        <!-- 
+            <div v-for="p in product" :key="p.id">
+                <p>{{ p.id }}</p>
+            </div> 
+        -->
+        <div :class="bgColor">
 
         </div>
         <div class="white">
 
         </div>
-        <CardWrapper />
+        <CardWrapper :product="product" titlePrice="#002772"/>
     </div>
 </template>
 
 <script>
+    // console.log(product);
     import CardWrapper from "./CardWrapper.vue";
     export default {
         name: "MainBody",
@@ -21,6 +27,9 @@
             bgColor: {
                 type: String,
                 // default: "#FDE2FF"
+            },
+            product: {
+                type: Array,
             }
         },
         computed: {
@@ -47,8 +56,15 @@
         position: relative;
     }
 
-    .main-bg{
-        /* background: #FDE2FF; */
+    .main-bg-female {
+        background: #FDE2FF;
+        background-image: url('~@/assets/bg-pattern.png');
+        height: 65%;
+        width: 100%;
+    }
+
+    .main-bg-male {
+        background: #D6E6FF;
         background-image: url('~@/assets/bg-pattern.png');
         height: 65%;
         width: 100%;

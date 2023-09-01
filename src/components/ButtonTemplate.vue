@@ -1,37 +1,65 @@
 <template>
-    <button :style="{ background: color }" class="button-3" @click="onClick()">{{ title }}</button>   
+  <button
+    :style="{ background: colorBg, color: textColor }"
+    class="button-3"
+    @click="onClick()"
+  >
+    <p>{{ title }}</p>
+  </button>
 </template>
 
 <script>
 export default {
-    name: 'ButtonTemplate',
-    props: {
-        title: String,
-        color: String
+  name: "ButtonTemplate",
+  props: {
+    title: String,
+    colorBg: String,
+    textColor: String,
+    titlePrice: {
+      type: String,
     },
-    methods: {
-        onClick() {
-            console.log('click')
-        }
-    }
-}
+  },
+  methods: {
+    onClick() {
+      console.log("click");
+    },
+  },
+  computed: {
+    color() {
+      return {
+        // "background-color": this.bgColor,
+        "--titlePrice" : this.titlePrice,
+      };
+    },
+  },
+};
 </script>
 
 <style scoped>
+
+p {
+  margin: 0;
+  font-weight: bold;
+}
 
 /* CSS */
 .button-3 {
   appearance: none;
   /* background-color: #2ea44f; */
   /* background: #2ea44f; */
-  border: 1px solid rgba(27, 31, 35, .15);
+  /* max-width: 200px; */
+  font-weight: bold;
+  width: 200%;
+  margin: 5px;
+  border: 3px solid "#002772";
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
   box-sizing: border-box;
-  color: #fff;
+  /* color: #fff; */
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -46,7 +74,7 @@ export default {
   white-space: nowrap;
 }
 
-.button-3:focus:not(:focus-visible):not(.focus-visible) {
+/* .button-3:focus:not(:focus-visible):not(.focus-visible) {
   box-shadow: none;
   outline: none;
 }
@@ -70,5 +98,5 @@ export default {
 .button-3:active {
   background-color: #298e46;
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
-}
+} */
 </style>
